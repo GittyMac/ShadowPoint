@@ -1,0 +1,2 @@
+rootProject.name='ShadowPoint'
+include ':app'
