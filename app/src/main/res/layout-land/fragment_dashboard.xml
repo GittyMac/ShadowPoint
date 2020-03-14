@@ -8,24 +8,26 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="240dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="179dp"
+        android:layout_height="284dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
         android:src="@drawable/dice1"
-        app:layout_constraintBottom_toTopOf="@+id/button13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button13"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.244" />
 
     <Button
         android:id="@+id/button13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="561dp"
+        android:layout_marginEnd="459dp"
         android:text="Roll"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41" />
 </androidx.constraintlayout.widget.ConstraintLayout>

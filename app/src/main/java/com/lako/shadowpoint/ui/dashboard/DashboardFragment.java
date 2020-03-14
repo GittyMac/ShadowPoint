@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,22 +16,34 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.lako.shadowpoint.R;
 
+import java.util.Random;
+
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
 
+    public static final Random RANDOM = new Random();
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
+
+        Button roll = rootView.findViewById(R.id.button13);
+        final ImageView dice = rootView.findViewById(R.id.imageView);
+
+        roll.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onClick(View v) {
+                int result = randomNumberGenerator();
+                int res1 = getResources().getIdentifier("dice" + result, "drawable", "com.lako.shadowpoint");
+                dice.setImageResource(res1);
             }
         });
-        return root;
+
+        return rootView;
+    }
+
+    public static int randomNumberGenerator() {
+        return RANDOM.nextInt(6) + 1;
     }
 }
